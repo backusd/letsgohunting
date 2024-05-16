@@ -1,0 +1,3 @@
+[submodule "graphics/vendor/build-dawn"]
+	path = graphics/vendor/build-dawn
+	url = https://github.com/backusd/build-dawn.git
