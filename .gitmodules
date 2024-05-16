@@ -1,3 +1,0 @@
-[submodule "graphics/vendor/dawn"]
-	path = graphics/vendor/dawn
-	url = https://dawn.googlesource.com/dawn
