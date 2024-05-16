@@ -74,12 +74,18 @@ project "graphics"
 	includedirs 
 	{ 
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/WebGPU-distribution-dawn-5869/include",
+		"%{prj.name}/vendor/webgpu",
 	}
 
 	defines
 	{
 		"GRAPHICS_CORE"
+	}
+
+	prebuildcommands 
+	{ 
+		"{COPYFILE} vendor/webgpu/webgpu.lib .",
+		"{COPYFILE} vendor/webgpu/webgpu.dll ." 
 	}
 
 	filter "system:windows"
