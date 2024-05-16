@@ -74,18 +74,12 @@ project "graphics"
 	includedirs 
 	{ 
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/webgpu",
+		"%{prj.name}/vendor/build-dawn/%{cfg.buildconfig}",
 	}
 
 	defines
 	{
 		"GRAPHICS_CORE"
-	}
-
-	prebuildcommands 
-	{ 
-		"{COPYFILE} vendor/webgpu/webgpu.lib .",
-		"{COPYFILE} vendor/webgpu/webgpu.dll ." 
 	}
 
 	filter "system:windows"
@@ -98,12 +92,31 @@ project "graphics"
 			"GRAPHICS_DEBUG",
 			"GRAPHICS_ENABLE_ASSERTS"
 		}
+		includedirs { "%{prj.name}/vendor/build-dawn/Debug" }
+		prebuildcommands 
+		{ 
+			"{COPYFILE} vendor/build-dawn/Debug/webgpu.lib .",
+			"{COPYFILE} vendor/build-dawn/Debug/webgpu.dll .", 
+			"{COPYFILE} vendor/build-dawn/Debug/webgpu.pdb ."
+		}
 		symbols "on"
 
 	filter "configurations:Release"
+		includedirs { "%{prj.name}/vendor/build-dawn/Release" }
+		prebuildcommands 
+		{ 
+			"{COPYFILE} vendor/build-dawn/Release/webgpu.lib .",
+			"{COPYFILE} vendor/build-dawn/Release/webgpu.dll ." 
+		}
 		defines "GRAPHICS_RELEASE"
 		optimize "on"
 
 	filter "configurations:Dist"
+		includedirs { "%{prj.name}/vendor/build-dawn/Release" }
+		prebuildcommands 
+		{ 
+			"{COPYFILE} vendor/build-dawn/Release/webgpu.lib .",
+			"{COPYFILE} vendor/build-dawn/Release/webgpu.dll ." 
+		}
 		defines "GRAPHICS_DIST"
 		optimize "on"
