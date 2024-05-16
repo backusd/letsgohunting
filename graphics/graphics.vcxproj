@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GRAPHICS_CORE;PLATFORM_WINDOWS;GRAPHICS_DEBUG;GRAPHICS_ENABLE_ASSERTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\build-dawn;vendor\build-dawn\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\build-dawn;vendor\build-dawn\dawn-Debug.build\gen\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -92,9 +92,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PreBuildEvent>
-      <Command>copy /B /Y vendor\build-dawn\Debug\webgpu.lib
-copy /B /Y vendor\build-dawn\Debug\webgpu.dll
-copy /B /Y vendor\build-dawn\Debug\webgpu.pdb</Command>
+      <Command>copy /B /Y vendor\build-dawn\dawn-Debug.build\src\dawn\native\Debug\webgpu.lib webgpu.lib
+copy /B /Y vendor\build-dawn\dawn-Debug.build\Debug\webgpu.dll webgpu.dll
+copy /B /Y vendor\build-dawn\dawn-Debug.build\Debug\webgpu.pdb webgpu.pdb</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -103,7 +103,7 @@ copy /B /Y vendor\build-dawn\Debug\webgpu.pdb</Command>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GRAPHICS_CORE;PLATFORM_WINDOWS;GRAPHICS_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\build-dawn;vendor\build-dawn\Release;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\build-dawn;vendor\build-dawn\dawn-Release.build\gen\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -119,8 +119,8 @@ copy /B /Y vendor\build-dawn\Debug\webgpu.pdb</Command>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PreBuildEvent>
-      <Command>copy /B /Y vendor\build-dawn\Release\webgpu.lib
-copy /B /Y vendor\build-dawn\Release\webgpu.dll</Command>
+      <Command>copy /B /Y vendor\build-dawn\dawn-Release.build\src\dawn\native\Release\webgpu.lib webgpu.lib
+copy /B /Y vendor\build-dawn\dawn-Release.build\Release\webgpu.dll webgpu.dll</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -129,7 +129,7 @@ copy /B /Y vendor\build-dawn\Release\webgpu.dll</Command>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GRAPHICS_CORE;PLATFORM_WINDOWS;GRAPHICS_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\build-dawn;vendor\build-dawn\Release;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\build-dawn;vendor\build-dawn\dawn-Release.build\gen\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -145,8 +145,8 @@ copy /B /Y vendor\build-dawn\Release\webgpu.dll</Command>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PreBuildEvent>
-      <Command>copy /B /Y vendor\build-dawn\Release\webgpu.lib
-copy /B /Y vendor\build-dawn\Release\webgpu.dll</Command>
+      <Command>copy /B /Y vendor\build-dawn\dawn-Release.build\src\dawn\native\Release\webgpu.lib webgpu.lib
+copy /B /Y vendor\build-dawn\dawn-Release.build\Release\webgpu.dll webgpu.dll</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

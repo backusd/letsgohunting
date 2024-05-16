@@ -92,31 +92,31 @@ project "graphics"
 			"GRAPHICS_DEBUG",
 			"GRAPHICS_ENABLE_ASSERTS"
 		}
-		includedirs { "%{prj.name}/vendor/build-dawn/Debug" }
+		includedirs { "%{prj.name}/vendor/build-dawn/dawn-Debug.build/gen/include" }
 		prebuildcommands 
 		{ 
-			"{COPYFILE} vendor/build-dawn/Debug/webgpu.lib .",
-			"{COPYFILE} vendor/build-dawn/Debug/webgpu.dll .", 
-			"{COPYFILE} vendor/build-dawn/Debug/webgpu.pdb ."
+			"{COPYFILE} vendor/build-dawn/dawn-Debug.build/src/dawn/native/Debug/webgpu.lib webgpu.lib",
+			"{COPYFILE} vendor/build-dawn/dawn-Debug.build/Debug/webgpu.dll webgpu.dll", 
+			"{COPYFILE} vendor/build-dawn/dawn-Debug.build/Debug/webgpu.pdb webgpu.pdb"
 		}
-		symbols "on"
+		symbols "on" 
 
 	filter "configurations:Release"
-		includedirs { "%{prj.name}/vendor/build-dawn/Release" }
+		includedirs { "%{prj.name}/vendor/build-dawn/dawn-Release.build/gen/include" }
 		prebuildcommands 
 		{ 
-			"{COPYFILE} vendor/build-dawn/Release/webgpu.lib .",
-			"{COPYFILE} vendor/build-dawn/Release/webgpu.dll ." 
+			"{COPYFILE} vendor/build-dawn/dawn-Release.build/src/dawn/native/Release/webgpu.lib webgpu.lib",
+			"{COPYFILE} vendor/build-dawn/dawn-Release.build/Release/webgpu.dll webgpu.dll"
 		}
 		defines "GRAPHICS_RELEASE"
 		optimize "on"
 
 	filter "configurations:Dist"
-		includedirs { "%{prj.name}/vendor/build-dawn/Release" }
+		includedirs { "%{prj.name}/vendor/build-dawn/dawn-Release.build/gen/include" }
 		prebuildcommands 
 		{ 
-			"{COPYFILE} vendor/build-dawn/Release/webgpu.lib .",
-			"{COPYFILE} vendor/build-dawn/Release/webgpu.dll ." 
+			"{COPYFILE} vendor/build-dawn/dawn-Release.build/src/dawn/native/Release/webgpu.lib webgpu.lib",
+			"{COPYFILE} vendor/build-dawn/dawn-Release.build/Release/webgpu.dll webgpu.dll"
 		}
 		defines "GRAPHICS_DIST"
 		optimize "on"

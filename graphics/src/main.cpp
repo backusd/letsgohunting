@@ -1,7 +1,7 @@
 #include "pch.h"
 
 
-#include "webgpu.h"
+#include <dawn/webgpu.h>
 #pragma comment (lib, "webgpu")
 
 int main(int, char**) 
